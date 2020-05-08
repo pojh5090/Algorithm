@@ -21,8 +21,8 @@ int main()
 	
 	while(1)
 	{
-		one = a / 10;
-		two = a % 10;
+		one = result / 10;
+		two = result % 10;
 		sum = one + two;		
 		result = (two * 10) + (sum % 10);
 		count++;
