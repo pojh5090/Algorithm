@@ -1,39 +1,38 @@
-#include<iostream>
+#include <iostream>
+#include <stdio.h>
 using namespace std;
-int main()
+
+int main() 
 {
-	int n;
-	cin >> n;
-
-	int arr[] = {0};
-	int sum = 0;   //총점 
-	float py; //평균
-	int cnt = 0; //평균 넘는애들 
-
-	for (int i = 0; i < n; i++)
+	int c, n;
+	float avg, percentage;
+	int up;
+	
+	cin >> c;  //케이스 수 입력하기 
+	
+	for(int i = 0; i < c; i++)
 	{
-		int num;
-		cin >> num;
-		for (int j = 0; j < num; j++)
+		avg = 0;
+		up = 0;
+		percentage = 0;
+		
+		cin >> n;  
+		float score[n];
+		
+		for(int j = 0; j < n; j++)
 		{
-			cin >> arr[j];
-
-			sum += arr[j];
-		}
-		for (int k = 0; k < num; k++)
+			cin >> score[j];
+			avg += score[j]; 
+		}	
+		avg = avg/(float)n;
+		
+		for(int j = 0; j < n; j++)
 		{
-			py = (float)sum / (float)num;
-
-			if (arr[k] > py)
-			{
-				cnt++;
-			}
-		}
-		cout << fixed;
-		cout.precision(3);
-
-		cout << (float)cnt / num * 100 << '%';
-
-		return 0;
-	}
+			if(avg < score[j])
+				up++;
+		}		
+		percentage = (float)(((float)up)/((float)n))*(float)100;
+		printf("%.3f%%\n", percentage);
+	}	
+	return 0;
 }
